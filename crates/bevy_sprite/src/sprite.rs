@@ -23,6 +23,16 @@ pub struct Sprite {
     pub anchor: Anchor,
 }
 
+impl Sprite {
+    /// Returns a default `Sprite` with a custom size for the rendered image.
+    pub fn from_custom_size(custom_size: Vec2) -> Self {
+        Self {
+            custom_size: Some(custom_size),
+            ..Default::default()
+        }
+    }
+}
+
 /// How a sprite is positioned relative to its [`Transform`](bevy_transform::components::Transform).
 /// It defaults to `Anchor::Center`.
 #[derive(Component, Debug, Clone, Copy, Default, Reflect)]
